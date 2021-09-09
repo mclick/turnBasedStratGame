@@ -7,6 +7,7 @@ class Menu extends Phaser.Scene {
     }
 
     create(){
+        currentMap = '/assets/maps/simpleMap.json';
         this.scene.start("mapScene");
     }
     update(){
