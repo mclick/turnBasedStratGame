@@ -3,7 +3,7 @@ let config = {
     type: Phaser.AUTO,
     width: 800,
     height: 800,
-    scene: [ Menu ],
+    scene: [ Menu, BattleMap ],
 }
 let game = new Phaser.Game(config);
 // set UI sizes
