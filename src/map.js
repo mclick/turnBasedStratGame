@@ -2,6 +2,7 @@ class Map {
     
     tileSet = "/assets/maps/TileSet.png";
     tilemap = "";
+    tileData;
 
     loadmap(mapName){
         tilemap = mapName;
@@ -14,4 +15,6 @@ class Map {
     getGridPos(x, y){
         return [Math.Trunc(x/16),Math.Trunc(y/16)];
     }
+
+
 }

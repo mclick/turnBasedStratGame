@@ -3,13 +3,15 @@ class Unit extends Phaser.GameObjects.Sprite {
       super(scene, x, y, texture, frame);
       scene.add.existing(this);
       this.indirect = false;
+      this.range = 0;
       this.health = 100;
       this.attack = 0;
       this.defense = 1;
       this.speed= 0;
       this.moveType = "NONE";
       this.unitType = "NONE";
-
+      this.cost = 0;
+      this.active = false;
     }
 
   
@@ -40,5 +42,4 @@ class Unit extends Phaser.GameObjects.Sprite {
             }
         }
     }
-
 }

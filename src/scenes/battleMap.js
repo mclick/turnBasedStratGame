@@ -12,6 +12,9 @@ class BattleMap extends Phaser.Scene {
 
     create(){
 
+        const coList = [new defCO, new defCO];
+        this.activeCO = coList[0];
+
         const map = this.make.tilemap({ key: 'map' });
 
         const tileset = map.addTilesetImage("TileSet", 'tiles');
@@ -19,12 +22,15 @@ class BattleMap extends Phaser.Scene {
         const ground = map.createStaticLayer('ground', tileset, 0, 0);
         const terrain = map.createStaticLayer('Terrain', tileset, 0, 0);
     
+        this.unit1 = new Soldier(this, 0,0, 'knight').setOrigin(0, 0);
+
         this.marker =this.add.sprite(0,0,'marker').setOrigin(0, 0);
 
         this.tilex=0;
         this.tiley=0;
 
-        this.unit1 = new Unit(this, 0,0, 'knight').setOrigin(0, 0);
+        this.selectedUnit;
+
     
     }
     update(){
@@ -34,7 +40,10 @@ class BattleMap extends Phaser.Scene {
         this.marker.x = this.tilex * 16;
         this.marker.y = this.tiley * 16;
 
-        //if (this.marker.x)
+        if (pointer.isDown && this.marker.x == this.unit1.x && this.marker.y == this.unit1.y){
+            this.selectedUnit = this.unit1;
+        }
     
     }
+
 }
